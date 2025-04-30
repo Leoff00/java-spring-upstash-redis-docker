@@ -1,0 +1,11 @@
+services:
+  java_redis:
+    container_name: "java_redis_app"
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
