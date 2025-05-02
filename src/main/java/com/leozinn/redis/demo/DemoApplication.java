@@ -12,10 +12,4 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	public void logRedisConfig() {
-    System.out.println("Redis Host: " + System.getenv("REDIS_HOST"));
-    System.out.println("Redis Port: " + System.getenv("REDIS_PORT"));
-    System.out.println("Redis Password: " + System.getenv("REDIS_PWD"));
-}
-
 }

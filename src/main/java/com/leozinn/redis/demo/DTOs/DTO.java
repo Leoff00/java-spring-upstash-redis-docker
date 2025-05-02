@@ -1,4 +1,6 @@
 package com.leozinn.redis.demo.DTOs;
 
-public record DTO(String key) {
+import java.util.Map;
+
+public record DTO(Map<String, String> body) {
 }
