@@ -45,13 +45,14 @@ public class ExController {
 
   @PostMapping("/set")
   public ResponseEntity<?> setCache(@RequestBody Map<String, String> dto) {
-    for (Map.Entry<String, String> entry : dto.entrySet()) {
-      if (template.hasKey(entry.getKey())) {
-        throw new UnprocessableEntity("Key is already in cache");
-      }
-      template.opsForValue().set(entry.getKey(), entry.getValue());
-      logger.info("DTO saving in cache successfully");
-    }
+    dto.entrySet()
+        .forEach((entry) -> {
+          if (template.hasKey(entry.getKey())) {
+            throw new UnprocessableEntity("Key is already in cache");
+          }
+          template.opsForValue().set(entry.getKey(), entry.getValue());
+          logger.info("DTO saving in cache successfully");
+        });
 
     return ResponseEntity.noContent().build();
   }
